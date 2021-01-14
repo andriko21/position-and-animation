@@ -53,7 +53,7 @@
         <h1 class="hero-title list">
           ЭФФЕКТИВНЫЕ РЕШЕНИЯ<br />ДЛЯ ВАШЕГО БИСНЕСА
         </h1>
-        <button class="button">Заказать услугу</button>
+        <button data-open-modal class="button">Заказать услугу</button>
       </section>
       <!--наші переваги-->
       <section class="section-benefits list">
@@ -381,5 +381,37 @@
 
       </div>
     </footer>
+  
+    <div class="backdrop is-hidden" data-backdrop> 
+      <div class="modal">
+        <button class="modal-btn list"  data-close-modal>
+        <svg  width="20" height="20">
+          <use href="./images/symbol-defs.svg#icon-close"></use>
+
+        </svg>
+      </button>
+      </div>
+    </div>
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]"),
+      };
+
+      refs.openModalBtn.addEventListener("click", toggleModal);
+      refs.closeModalBtn.addEventListener("click", toggleModal);
+
+      refs.backdrop.addEventListener("click", logBackdropClick);
+
+      function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+      }
+
+      function logBackdropClick() {
+        console.log("Это клик в бекдроп");
+      }
+    </script>
+
   </body>
 </html>
