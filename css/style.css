@@ -81,11 +81,13 @@ header {
   line-height: 1.14;
 
   color: var(--title-text-color);
+
+  transition: color var(--time-transition) var(--function-bezier);
 }
 
+.links.current,
 .links:hover,
 .links:focus {
-  transition: color var(--time-transition) var(--function-bezier);
   color: var(--acent-color);
 }
 
@@ -103,8 +105,12 @@ header {
   background: var(--acent-color);
   border-radius: 2px;
   opacity: 0;
+  transition: opacity var(--time-transition) var(--function-bezier);
 }
-.item .links:hover::after {
+.item .links.current::after,
+.item .links:hover::after,
+.item .links:focus::after {
+  background: var(--acent-color);
   opacity: 1;
 }
 
@@ -694,7 +700,8 @@ footer {
   color: var(--primary-white-color);
 }
 
-.card-portfolio:hover .overlay-portfolio {
+.card-portfolio:hover .overlay-portfolio,
+.card-portfolio:focus .overlay-portfolio {
   transform: translateY(0);
   opacity: 0.9;
 }
