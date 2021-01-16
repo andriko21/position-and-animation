@@ -659,6 +659,8 @@ footer {
 
 .card-portfolio {
   display: block;
+  box-shadow: none;
+  transition: box-shadow var(--time-transition) var(--function-bezier);
 }
 
 .card-portfolio:hover,
@@ -687,8 +689,7 @@ footer {
   box-shadow: none;
 
   transform: translateY(100%);
-  transition: transform var(--time-transition) var(--function-bezier),
-    box-shadow var(--time-transition) var(--function-bezier);
+  transition: transform var(--time-transition) var(--function-bezier);
 }
 
 .exposition {
